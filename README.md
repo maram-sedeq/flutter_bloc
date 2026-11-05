@@ -1,17 +1,75 @@
-# flutter_bloc
+# Flutter BLoC Counter App
 
-A new Flutter project.
+A simple Counter application built with Flutter to understand the fundamentals of BLoC architecture and event-driven programming.
+
+## Overview
+
+This project demonstrates how to separate business logic from UI rendering using the `flutter_bloc` package.
+
+## Features
+
+- Increment counter value.
+- Decrement counter value.
+- Reset counter value to zero.
+- Manage application state using BLoC.
+
+## Concepts Covered
+
+- BLoC Architecture
+- Event-Driven Programming
+- Unidirectional Data Flow
+- Events and States
+- `BlocProvider`
+- `BlocBuilder`
+- Event Handlers using `on<Event>()`
+- Accessing BLoC using `context.read()`
+
+## Project Structure
+
+```text
+lib/
+├── main.dart
+├── counter_event.dart
+├── counter_state.dart
+└── counter_bloc.dart
+```
+
+## Dependencies
+
+- Flutter
+- Dart
+- flutter_bloc: ^8.0.1
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repository:
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+git clone <repository-url>
+```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+2. Navigate to the project directory:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+cd flutter_bloc_course
+```
+
+3. Install dependencies:
+
+```bash
+flutter pub get
+```
+
+4. Run the application:
+
+```bash
+flutter run
+```
+
+## Learning Objective
+
+The main goal of this project is to understand how BLoC handles events, manages states, and updates the UI without using `setState()` in the presentation layer.
+
+---
+
+**Status:** Completed
