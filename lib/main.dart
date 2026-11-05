@@ -13,13 +13,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CounterBloc(),
-      child:MaterialApp(
-     home: HomePage(),
-     debugShowCheckedModeBanner: false,
-      )
-    );
+    return BlocProvider(create: (context) => CounterBloc(),
+    child: const MaterialApp(
+      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+    ),);
   }
 }
 
