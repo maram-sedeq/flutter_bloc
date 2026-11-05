@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_learn/bloc/counter_bloc.dart';
+import 'package:flutter_bloc_learn/counter_app/bloc/counter_bloc.dart';
 
 class ButtonWidget extends StatelessWidget{
   const ButtonWidget ({Key ? key}): super (key: key);

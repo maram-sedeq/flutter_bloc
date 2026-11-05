@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_learn/bloc/counter_bloc.dart';
+import 'package:flutter_bloc_learn/counter_app/bloc/counter_bloc.dart';
 import '../widgets/buttons.dart';
 
 class HomePage extends StatelessWidget{
@@ -11,6 +11,7 @@ const HomePage ({Key ? key}): super (key: key);
 
 @override
 Widget build(BuildContext){
+  print('Counter Text Widget Rebuilt');
   return Scaffold(
     body: Center(
      child:
@@ -20,7 +21,7 @@ Widget build(BuildContext){
        style:  TextStyle(fontSize: 30),);
         }
         else if(state is CounterValueState){
-        print('Counter Text Widget Rebuilt');
+        
        return Text(state.counter.toString(),
        style: const TextStyle(fontSize: 30),);
         }
