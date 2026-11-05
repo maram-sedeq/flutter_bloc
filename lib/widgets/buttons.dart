@@ -7,7 +7,7 @@ class ButtonWidget extends StatelessWidget{
 
 @override
 Widget build(BuildContext context){
-  print('Button Rebuilt');
+  print('Button Rebuilt');//Test Only the widget displaying the counter text rebuilds on state emission
   return Column(
     mainAxisAlignment: MainAxisAlignment.end,
     children: [
