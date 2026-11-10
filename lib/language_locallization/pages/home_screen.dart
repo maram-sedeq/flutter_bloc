@@ -1,47 +1,36 @@
 import 'package:flutter/material.dart';
-import 'settings_page.dart';
-import 'app_locallization.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+
+class HomeScreen extends StatelessWidget{
+  const HomeScreen ({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("home".tr(context)),
-        actions: [
-          IconButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (ctx) => const SettingsPage())),
-              icon: const Icon(Icons.settings))
-        ],
-      ),
+     return Scaffold(
+      appBar: AppBar(),
       drawer: const Drawer(),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(
-                "hello_msg".tr(context),
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
-              ),
-              const Text(
-                'This text will not be translated.',
-                style: TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
+      body: Center(child: 
+      Padding(padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: 
+          const <Widget>[
+            Text("Hello there !",
+            style: TextStyle(fontSize: 25),
+            textAlign: TextAlign.center,
+             ),
+             Text("This text will not be translated",
+             style: TextStyle(fontSize: 25),
+             textAlign: TextAlign.center,
+             )
+          ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+      ),
+      ),
+       floatingActionButton: FloatingActionButton(
+        onPressed: (){},
         child: const Icon(Icons.add),
-      ),
-    );
+        ),
+     );
   }
 }
