@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_learn/language_locallization/pages/app_locallization.dart';
 
 
 class HomeScreen extends StatelessWidget{
@@ -7,15 +8,25 @@ class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-      appBar: AppBar(),
-      drawer: const Drawer(),
+      appBar: AppBar(
+        backgroundColor: Colors.pink,
+        title: Text("Home",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed:(){},
+            icon: Icon(Icons.settings,color: Colors.white,)
+          )
+        ],
+      ),
+      drawer: const Drawer( ),
       body: Center(child: 
       Padding(padding: const EdgeInsets.all(8.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: 
-          const <Widget>[
-            Text("Hello there !",
+           <Widget>[
+            Text(AppLocalelizations.of(context)!.translate("hello_msg"),
             style: TextStyle(fontSize: 25),
             textAlign: TextAlign.center,
              ),
@@ -28,8 +39,9 @@ class HomeScreen extends StatelessWidget{
       ),
       ),
        floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.pink,
         onPressed: (){},
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add,color: Colors.white,),
         ),
      );
   }
