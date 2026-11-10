@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_learn/language_locallization/pages/app_locallization.dart';
+import 'package:flutter_bloc_learn/language_locallization/pages/settings_page.dart';
 
 
 class HomeScreen extends StatelessWidget{
@@ -10,11 +11,12 @@ class HomeScreen extends StatelessWidget{
      return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink,
-        title: Text("Home",style: TextStyle(color: Colors.white),),
+        title: Text("home".tr(context),style: TextStyle(color: Colors.white),),
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed:(){},
+             onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (ctx) => const SettingsPage())),
             icon: Icon(Icons.settings,color: Colors.white,)
           )
         ],
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget{
         mainAxisSize: MainAxisSize.min,
         children: 
            <Widget>[
-            Text(AppLocalelizations.of(context)!.translate("hello_msg"),
+            Text("hello_msg".tr(context),
             style: TextStyle(fontSize: 25),
             textAlign: TextAlign.center,
              ),
