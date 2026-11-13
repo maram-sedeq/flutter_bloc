@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_learn/cubit/locale_cubit.dart';
+import 'package:flutter_bloc_learn/language_locallization/cubit/locale_cubit.dart';
 //import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_locallization.dart';
 
