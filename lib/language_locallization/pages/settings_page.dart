@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_learn/cubit/locale_cubit.dart';
-
 //import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_locallization.dart';
 
@@ -25,11 +24,8 @@ class SettingsPage extends StatelessWidget {
           child: BlocConsumer<LocaleCubit, ChangeLocalState>(
             listener: (context, state) {
               Navigator.of(context).pop();
-
             },
-         
               builder: (context, state) {
-              
                   return DropdownButton<String>(
                     value: state.locale.languageCode,
                     icon: const Icon(Icons.keyboard_arrow_down),
@@ -41,14 +37,11 @@ class SettingsPage extends StatelessWidget {
                     }).toList(),
                     onChanged: (String? newValue) {
                       if (newValue != null) {
-                        BlocProvider.of<LocaleCubit>(context)
-                            .changeLanguage(newValue);
+   
                         context.read<LocaleCubit>().changeLanguage(newValue);
                       }
                     },
-                  );
-              
-               
+                  );   
               },
             ),
           ),

@@ -34,9 +34,8 @@ return MultiBlocProvider(
   ],
   child: BlocBuilder<LocaleCubit, ChangeLocalState>(
         builder: (context, state) {
-          
           return MaterialApp( 
-     locale: const Locale('en'),
+     locale: state.locale,
      supportedLocales: [
       Locale('en', ),
       Locale('ar',),
