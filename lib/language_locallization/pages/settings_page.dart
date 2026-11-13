@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_learn/cubit/locale_cubit.dart';
+
 //import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_locallization.dart';
 
@@ -9,26 +12,48 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         backgroundColor: Colors.pink,
-        title: Text("settings".tr(context),style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.pink,
+        title: Text(
+          "settings".tr(context),
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: Center(
         child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: DropdownButton<String>(
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  items: ['ar', 'en'].map((String items) {
-                    return DropdownMenuItem<String>(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-                  onChanged: (value){},
+          padding: const EdgeInsets.all(8.0),
+          child: BlocConsumer<LocaleCubit, ChangeLocalState>(
+            listener: (context, state) {
+              Navigator.of(context).pop();
+
+            },
+         
+              builder: (context, state) {
+              
+                  return DropdownButton<String>(
+                    value: state.locale.languageCode,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items: ['ar', 'en'].map((String items) {
+                      return DropdownMenuItem<String>(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      if (newValue != null) {
+                        BlocProvider.of<LocaleCubit>(context)
+                            .changeLanguage(newValue);
+                        context.read<LocaleCubit>().changeLanguage(newValue);
+                      }
+                    },
+                  );
+              
+               
+              },
             ),
+          ),
         ),
-      )
+   
     );
   }
-  
 }

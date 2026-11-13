@@ -4,12 +4,13 @@
 //import 'package:flutter_bloc_learn/counter_app/bloc/counter_bloc.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_learn/cubit/locale_cubit.dart';
 import 'package:flutter_bloc_learn/language_locallization/pages/app_locallization.dart';
 import 'package:flutter_bloc_learn/language_locallization/pages/home_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-
-void main() {
+ void main() {
   runApp(const MyApp());
   
 }
@@ -24,8 +25,18 @@ class MyApp extends StatelessWidget {
     child: MaterialApp(
     home: // HomePage(),//counter_app
      */
-    return MaterialApp( 
-     
+return MultiBlocProvider(
+  providers: [
+    BlocProvider(
+      create: (context) => LocaleCubit()..getSavedLanguage(),
+    ),
+   
+  ],
+  child: BlocBuilder<LocaleCubit, ChangeLocalState>(
+        builder: (context, state) {
+          
+          return MaterialApp( 
+     locale: const Locale('en'),
      supportedLocales: [
       Locale('en', ),
       Locale('ar',),
@@ -49,6 +60,11 @@ class MyApp extends StatelessWidget {
       home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
+    
+          }
+      )
+);
+  
     //);
   }
 }
