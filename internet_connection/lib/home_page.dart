@@ -22,9 +22,7 @@ class HomePage extends StatelessWidget {
             else if(state is NotConnectedState){
              return _buildTextWidget(state.message);
             }
-            else{
-              return SizedBox(height: 10,);
-            }
+            return const Text("didn't work");
           }
         ),
       ),
