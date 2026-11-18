@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:internet_connection/bloc/internet_bloc.dart';
+//import 'package:internet_connection/bloc/internet_bloc.dart';
+import 'package:internet_connection/cubit/internet_cubit.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,16 +15,37 @@ class HomePage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 255, 113, 165),
         ),
-        body: BlocBuilder<InternetBloc, InternetState>(
-          builder: (context, state){
-            if(state is ConnectedState){
-             return _buildTextWidget(state.message);
+        //BlocBuilder<InternetBloc, InternetState>(
+
+        // body: BlocBuilder<InternetCubit, InternetState>(
+        //   builder: (context, state){
+        //     if(state is ConnectedState){
+        //      return _buildTextWidget(state.message);
+        //     }
+        //     else if(state is NotConnectedState){
+        //      return _buildTextWidget(state.message);
+        //     }
+        //     return const Text("didn't work");
+        //   }
+        // ),
+
+        ////if you want it as snack bar
+       body:  BlocConsumer<InternetCubit, InternetState>(
+          listener: (context, state) {
+            if (state is NotConnectedState) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(state.message),
+                  backgroundColor: Color.fromARGB(255, 255, 113, 165),));
             }
-            else if(state is NotConnectedState){
-             return _buildTextWidget(state.message);
+          },
+          builder: (context, state) {
+            if (state is ConnectedState) {
+              return _buildTextWidget(state.message);
+            } else if (state is NotConnectedState) {
+              return _buildTextWidget(state.message);
             }
             return const Text("didn't work");
-          }
+          },
         ),
       ),
     );
