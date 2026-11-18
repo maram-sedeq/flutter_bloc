@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_learn/language_locallization/pages/app_locallization.dart';
+import 'package:flutter_bloc_learn/language_locallization/app_locallization.dart';
 import 'package:flutter_bloc_learn/language_locallization/pages/settings_page.dart';
 
 
