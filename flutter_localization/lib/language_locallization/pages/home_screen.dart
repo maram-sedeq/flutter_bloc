@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget{
           )
         ],
       ),
-      drawer: const Drawer( ),
+      // drawer: const Drawer( ),
       body: Center(child: 
       Padding(padding: const EdgeInsets.all(8.0),
       child: Column(
